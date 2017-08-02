@@ -14,7 +14,6 @@ import Gloss
 protocol IssueDelegate : class {
     func startLoading()
     func finishLoading()
-    func getIssues(_ issues: [IssueData?])
 }
 
 class Presenter : NSObject {
@@ -31,12 +30,12 @@ class Presenter : NSObject {
                 guard let issueJson = data as? [JSON] else { return }
                 guard let issueList = [IssueData].from(jsonArray: issueJson) else { return }
                 self.dataArr = issueList
-                self.delegate?.getIssues(issueList)
+                self.delegate?.finishLoading()
             case .failure(let error):
                 print(error)
+                self.delegate?.finishLoading()
             }
         }
-        self.delegate?.finishLoading()
     }
 }
 
@@ -55,5 +54,12 @@ extension Presenter : UITableViewDataSource {
             cell.configure(data: data)
         }
         return UITableViewCell()
+    }
+}
+
+
+extension Presenter : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.dataArr[indexPath.row])
     }
 }

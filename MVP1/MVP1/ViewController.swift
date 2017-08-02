@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.activityIndicator?.activityIndicatorViewStyle = .gray
         self.activityIndicator?.hidesWhenStopped = true
-        self.tableView?.delegate = self
+        self.tableView?.delegate = presenter
         self.tableView?.dataSource = presenter
         self.presenter.delegate = self
         self.presenter.getIssues()
@@ -40,12 +40,6 @@ extension ViewController : IssueDelegate {
     
     func finishLoading() {
         self.activityIndicator?.stopAnimating()
-    }
-    
-    func getIssues(_ issues: [IssueData?]) {
-        self.dataSource = issues
         self.tableView?.reloadData()
     }
 }
-
-extension ViewController : UITableViewDelegate {}
