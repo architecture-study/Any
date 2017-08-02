@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C118BFF1F31C48000E0C039 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C118BFE1F31C48000E0C039 /* DetailViewController.swift */; };
 		1C18189C1F315D23007EE26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18189B1F315D23007EE26D /* AppDelegate.swift */; };
 		1C18189E1F315D23007EE26D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C18189D1F315D23007EE26D /* ViewController.swift */; };
 		1C1818A11F315D23007EE26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C18189F1F315D23007EE26D /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		19A99E097870CBA59DE98A94 /* Pods-MVP1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVP1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVP1/Pods-MVP1.debug.xcconfig"; sourceTree = "<group>"; };
+		1C118BFE1F31C48000E0C039 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1C1818981F315D23007EE26D /* MVP1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C18189B1F315D23007EE26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C18189D1F315D23007EE26D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				1C18189D1F315D23007EE26D /* ViewController.swift */,
+				1C118BFE1F31C48000E0C039 /* DetailViewController.swift */,
 				1C1818D01F316698007EE26D /* IssueCell.swift */,
 			);
 			name = View;
@@ -485,6 +488,7 @@
 				1C1818D11F316698007EE26D /* IssueCell.swift in Sources */,
 				1C1818CD1F3162BB007EE26D /* IssueData.swift in Sources */,
 				1C18189E1F315D23007EE26D /* ViewController.swift in Sources */,
+				1C118BFF1F31C48000E0C039 /* DetailViewController.swift in Sources */,
 				1C1818CF1F31645B007EE26D /* Presenter.swift in Sources */,
 				1C18189C1F315D23007EE26D /* AppDelegate.swift in Sources */,
 			);

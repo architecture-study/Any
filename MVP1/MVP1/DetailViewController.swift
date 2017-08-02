@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailViewController.swift
 //  MVP1
 //
 //  Created by 유병재 on 2017. 8. 2..
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailViewController : UITableViewController {
     
-    @IBOutlet var tableView : UITableView?
     @IBOutlet var activityIndicator: UIActivityIndicatorView?
-
+    
     fileprivate let presenter = Presenter()
-
+    var titleStr : String? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator?.activityIndicatorViewStyle = .gray
@@ -22,24 +22,19 @@ class ViewController: UIViewController {
         self.presenter.delegate = self
         self.tableView?.delegate = self
         self.tableView?.dataSource = presenter
-        self.presenter.getIssues()
+        if let title = self.titleStr {
+            self.presenter.getIssueDetail(title: title)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? DetailViewController, segue.identifier == "passData", let cell = sender as? IssueCell {
-            dest.titleStr = cell.title?.text
-            dest.title = cell.title?.text
-        }
-    }
 }
 
-extension ViewController : IssueDelegate {
+extension DetailViewController : IssueDelegate {
     func startLoading() {
         self.activityIndicator?.startAnimating()
     }
@@ -50,9 +45,3 @@ extension ViewController : IssueDelegate {
     }
 }
 
-extension ViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        self.performSegue(withIdentifier: "passData", sender: cell)
-    }
-}
