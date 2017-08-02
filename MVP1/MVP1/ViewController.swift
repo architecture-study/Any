@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? DetailViewController, segue.identifier == "passData", let cell = sender as? IssueCell {
-            dest.titleStr = cell.title?.text
             dest.title = cell.title?.text
         }
     }

@@ -13,7 +13,6 @@ class DetailViewController : UITableViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView?
     
     fileprivate let presenter = Presenter()
-    var titleStr : String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +21,8 @@ class DetailViewController : UITableViewController {
         self.presenter.delegate = self
         self.tableView?.delegate = self
         self.tableView?.dataSource = presenter
-        if let title = self.titleStr {
-            self.presenter.getIssueDetail(title: title)
-        }
+        guard let title = self.title else { return }
+        self.presenter.getIssueDetail(title: title)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
