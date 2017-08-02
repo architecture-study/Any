@@ -14,6 +14,8 @@
 		1C1818A61F315D23007EE26D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1818A41F315D23007EE26D /* LaunchScreen.storyboard */; };
 		1C1818B11F315D24007EE26D /* MVP1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1818B01F315D24007EE26D /* MVP1Tests.swift */; };
 		1C1818BC1F315D24007EE26D /* MVP1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1818BB1F315D24007EE26D /* MVP1UITests.swift */; };
+		1C1818CD1F3162BB007EE26D /* IssueData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1818CC1F3162BB007EE26D /* IssueData.swift */; };
+		1C1818CF1F31645B007EE26D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1818CE1F31645B007EE26D /* Presenter.swift */; };
 		C75BE454B6C70B962D11C2A2 /* Pods_MVP1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A48F8A4899DDADDAF59608 /* Pods_MVP1UITests.framework */; };
 		DD02CF21BC0875B1B22BFCD3 /* Pods_MVP1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC225AFA50452C5A21D543D0 /* Pods_MVP1Tests.framework */; };
 		E3CAF67F29FD44EC233E3225 /* Pods_MVP1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E6609DDBD8B212DECCB677 /* Pods_MVP1.framework */; };
@@ -51,6 +53,8 @@
 		1C1818B71F315D24007EE26D /* MVP1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVP1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1818BB1F315D24007EE26D /* MVP1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVP1UITests.swift; sourceTree = "<group>"; };
 		1C1818BD1F315D24007EE26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C1818CC1F3162BB007EE26D /* IssueData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueData.swift; sourceTree = "<group>"; };
+		1C1818CE1F31645B007EE26D /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		38E6609DDBD8B212DECCB677 /* Pods_MVP1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVP1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8CBAFB555C50866D16D919 /* Pods-MVP1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVP1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVP1UITests/Pods-MVP1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		84152AE7235CD2D1BE6C3637 /* Pods-MVP1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVP1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVP1Tests/Pods-MVP1Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +135,6 @@
 				1C1818CA1F315E4D007EE26D /* View */,
 				1C1818C91F315E42007EE26D /* Model */,
 				1C18189B1F315D23007EE26D /* AppDelegate.swift */,
-				1C18189D1F315D23007EE26D /* ViewController.swift */,
 				1C18189F1F315D23007EE26D /* Main.storyboard */,
 				1C1818A21F315D23007EE26D /* Assets.xcassets */,
 				1C1818A41F315D23007EE26D /* LaunchScreen.storyboard */,
@@ -161,6 +164,7 @@
 		1C1818C91F315E42007EE26D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C1818CC1F3162BB007EE26D /* IssueData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -168,6 +172,7 @@
 		1C1818CA1F315E4D007EE26D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C18189D1F315D23007EE26D /* ViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		1C1818CB1F315E56007EE26D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				1C1818CE1F31645B007EE26D /* Presenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -473,7 +479,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1818CD1F3162BB007EE26D /* IssueData.swift in Sources */,
 				1C18189E1F315D23007EE26D /* ViewController.swift in Sources */,
+				1C1818CF1F31645B007EE26D /* Presenter.swift in Sources */,
 				1C18189C1F315D23007EE26D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +739,7 @@
 				1C1818C21F315D24007EE26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C1818C31F315D24007EE26D /* Build configuration list for PBXNativeTarget "MVP1Tests" */ = {
 			isa = XCConfigurationList;
@@ -739,6 +748,7 @@
 				1C1818C51F315D24007EE26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C1818C61F315D24007EE26D /* Build configuration list for PBXNativeTarget "MVP1UITests" */ = {
 			isa = XCConfigurationList;
@@ -747,6 +757,7 @@
 				1C1818C81F315D24007EE26D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
