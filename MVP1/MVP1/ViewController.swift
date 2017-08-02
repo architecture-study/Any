@@ -11,9 +11,19 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var tableView : UITableView?
+    @IBOutlet var activityIndicator: UIActivityIndicatorView?
+
+    var dataSource : [IssueData?] = []
+    fileprivate let presenter = Presenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicator?.activityIndicatorViewStyle = .gray
+        self.activityIndicator?.hidesWhenStopped = true
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = presenter
+        self.presenter.delegate = self
+        self.presenter.getIssues()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -21,25 +31,21 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
-extension ViewController : UITableViewDelegate {
-    
-}
-
-extension ViewController : UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+extension ViewController : IssueDelegate {
+    func startLoading() {
+        self.activityIndicator?.startAnimating()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func finishLoading() {
+        self.activityIndicator?.stopAnimating()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func getIssues(_ issues: [IssueData?]) {
+        self.dataSource = issues
+        self.tableView?.reloadData()
     }
 }
 
+extension ViewController : UITableViewDelegate {}
