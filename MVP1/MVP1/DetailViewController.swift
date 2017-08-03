@@ -12,7 +12,7 @@ class DetailViewController : UITableViewController {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView?
     
-    fileprivate let presenter = Presenter()
+    fileprivate let presenter = DetailPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()

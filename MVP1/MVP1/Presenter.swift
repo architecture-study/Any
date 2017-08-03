@@ -16,42 +16,18 @@ protocol IssueDelegate : class {
     func finishLoading()
 }
 
-enum CellType {
-    case issue
-    case issueDetail
-}
-
 class Presenter : NSObject {
     
     var delegate : IssueDelegate?
     var dataArr : [Any?] = []
-    var cellType : CellType = .issue
     
     func getIssues() {
-        self.cellType = .issue
         self.delegate?.startLoading()
         Alamofire.request("https://api.github.com/repos/architecture-study/foobar/issues").responseJSON { (response) in
             switch response.result {
             case .success(let data):
                 guard let issueJson = data as? [JSON] else { return }
                 guard let issueList = [IssueData].from(jsonArray: issueJson) else { return }
-                self.dataArr = issueList
-                self.delegate?.finishLoading()
-            case .failure(let error):
-                print(error)
-                self.delegate?.finishLoading()
-            }
-        }
-    }
-    
-    func getIssueDetail(title:String) {
-        self.cellType = .issueDetail
-        self.delegate?.startLoading()
-        Alamofire.request("https://api.github.com/repos/architecture-study/foobar/issues/\(title)/comments").responseJSON { (response) in
-            switch response.result {
-            case .success(let data):
-                guard let issueJson = data as? [JSON] else { return }
-                guard let issueList = [IssueDetailData].from(jsonArray: issueJson) else { return }
                 self.dataArr = issueList
                 self.delegate?.finishLoading()
             case .failure(let error):
@@ -73,17 +49,9 @@ extension Presenter : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch self.cellType {
-        case .issue :
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? IssueCell, let data = self.dataArr[indexPath.row] {
-                cell.configure(data: data as? IssueData)
-                return cell
-            }
-        case .issueDetail :
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail", for: indexPath) as? IssueDetailCell, let data = self.dataArr[indexPath.row] {
-                cell.configure(data: data as? IssueDetailData)
-                return cell
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? IssueCell, let data = self.dataArr[indexPath.row] {
+            cell.configure(data: data as? IssueData)
+            return cell
         }
         return UITableViewCell()
     }
