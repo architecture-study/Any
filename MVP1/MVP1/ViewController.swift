@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         self.presenter.delegate = self
         self.tableView?.delegate = self
         self.tableView?.dataSource = presenter
-        self.presenter.getIssues()
+//        self.presenter.getIssues()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -35,6 +35,14 @@ class ViewController: UIViewController {
         if let dest = segue.destination as? DetailViewController, segue.identifier == "passData", let cell = sender as? IssueCell {
             dest.title = cell.title?.text
         }
+    }
+    
+    @IBAction func loadIssue(_ sender:Any) {
+        self.presenter.getIssues()
+    }
+    
+    @IBAction func addIssue(_ sender:Any) {
+        self.presenter.addIssue()
     }
 }
 

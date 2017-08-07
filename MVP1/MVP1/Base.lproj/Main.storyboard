@@ -75,7 +75,18 @@
                             <constraint firstItem="AmR-tN-RkM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yuU-MX-3E4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="edA-eM-p38"/>
+                    <navigationItem key="navigationItem" id="edA-eM-p38">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="refresh" id="8Pt-c8-l8X">
+                            <connections>
+                                <action selector="loadIssue:" destination="BYZ-38-t0r" id="wMh-rt-xmF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="ETA-c8-mEQ">
+                            <connections>
+                                <action selector="addIssue:" destination="BYZ-38-t0r" id="cb8-ra-A8Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="AmR-tN-RkM" id="409-fe-oOO"/>
                         <outlet property="tableView" destination="buS-OP-Zd5" id="vg3-aq-gsl"/>

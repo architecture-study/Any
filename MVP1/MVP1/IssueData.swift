@@ -12,12 +12,14 @@ import Gloss
 struct IssueData {
     var title : String = ""
     var comments : Int = 0
+    var number : Int = -1
 }
 
 extension IssueData : Decodable {
     init?(json : JSON) {
         self.title =  ("title" <~~ json) ?? ""
         self.comments = ("comments" <~~ json) ?? 0
+        self.number = ("number" <~~ json) ?? -1
     }
 }
 
