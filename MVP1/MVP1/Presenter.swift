@@ -29,7 +29,6 @@ class Presenter : NSObject {
                 guard let issueJson = data as? [JSON] else { return }
                 guard let issueList = [IssueData].from(jsonArray: issueJson) else { return }
                 self.dataArr = issueList
-                print(self.dataArr)
                 self.delegate?.finishLoading()
             case .failure(let error):
                 print(error)
